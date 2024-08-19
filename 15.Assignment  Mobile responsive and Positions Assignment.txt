@@ -1,0 +1,202 @@
+
+15.Assignment  Mobile responsive and Positions Assignment
+
+.............................................................
+
+Q1.What is position property in CSS and its type?
+
+Q2.How many types of positioning are there in CSS?
+
+Q3.What is Z-index and why to use it?
+
+Note: Please create a Google Document and write your answers and 
+upload the shareable link of the Google Document with view access 
+during the submission of the assignment.
+
+...............................................................
+
+Q1.What is position property in CSS and its type?
+
+A.The **`position`** property in CSS determines how an element is positioned within its containing block. It affects the layout of the element and how it interacts with other elements on the page. Here are the different types of positioning values that can be used with the `position` property:
+
+### **1. `static`**
+- **Description**: This is the default positioning value for all elements. Elements are positioned according to the normal document flow, meaning they are placed in the order they appear in the HTML.
+- **Behavior**: The `top`, `right`, `bottom`, and `left` properties have no effect when the element is positioned statically.
+
+### **2. `relative`**
+- **Description**: The element is positioned relative to its normal position. You can adjust its position using the `top`, `right`, `bottom`, and `left` properties.
+- **Behavior**: The space originally occupied by the element in the document flow is preserved, but the element is visually offset from this position.
+
+### **3. `absolute`**
+- **Description**: The element is positioned relative to its nearest positioned ancestor (i.e., the nearest ancestor element with a `position` value other than `static`). If there is no such ancestor, it is positioned relative to the initial containing block (usually the viewport).
+- **Behavior**: The element is removed from the normal document flow, so it does not affect the position of other elements.
+
+### **4. `fixed`**
+- **Description**: The element is positioned relative to the browser window (viewport). It stays in the same position even when the page is scrolled.
+- **Behavior**: The element is removed from the normal document flow and does not affect the position of other elements.
+
+### **5. `sticky`**
+- **Description**: The element toggles between `relative` and `fixed` positioning depending on the user's scroll position. It behaves like `relative` until it crosses a specified threshold, after which it sticks in place like `fixed`.
+- **Behavior**: The element is treated as `relative` until a specified scroll point is reached, then it becomes `fixed` at that point.
+
+### **Examples**:
+
+1. **Static Positioning**:
+   ```css
+   .element {
+     position: static; /* Default positioning */
+   }
+   ```
+
+2. **Relative Positioning**:
+   ```css
+   .element {
+     position: relative;
+     top: 10px; /* Moves the element 10px down from its original position */
+     left: 20px; /* Moves the element 20px to the right from its original position */
+   }
+   ```
+
+3. **Absolute Positioning**:
+   ```css
+   .element {
+     position: absolute;
+     top: 10px; /* Moves the element 10px down from its nearest positioned ancestor */
+     right: 20px; /* Moves the element 20px to the left from its nearest positioned ancestor */
+   }
+   ```
+
+4. **Fixed Positioning**:
+   ```css
+   .element {
+     position: fixed;
+     bottom: 10px; /* Keeps the element 10px from the bottom of the viewport */
+     right: 20px; /* Keeps the element 20px from the right edge of the viewport */
+   }
+   ```
+
+5. **Sticky Positioning**:
+   ```css
+   .element {
+     position: sticky;
+     top: 0; /* Element sticks to the top of the container when scrolling */
+   }
+   ```
+
+### **Summary**:
+- **`static`**: Default, normal document flow.
+- **`relative`**: Positioned relative to its normal position.
+- **`absolute`**: Positioned relative to the nearest positioned ancestor or the viewport.
+- **`fixed`**: Positioned relative to the viewport, stays in place on scroll.
+- **`sticky`**: Positioned based on the user's scroll position, toggles between `relative` and `fixed`.
+
+Each type of positioning serves a different purpose and can be used to create various layout effects on a webpage.
+
+...............................................................
+
+Q2.How many types of positioning are there in CSS?
+
+A.There are **five types** of positioning in CSS:
+
+1. **`static`**:
+   - **Description**: The default positioning for all elements. Elements are positioned according to the normal document flow.
+   - **Behavior**: The `top`, `right`, `bottom`, and `left` properties have no effect. Elements appear in the order they are written in the HTML.
+
+2. **`relative`**:
+   - **Description**: The element is positioned relative to its normal position.
+   - **Behavior**: The `top`, `right`, `bottom`, and `left` properties can be used to offset the element from its original position. The space originally occupied by the element in the document flow is preserved.
+
+3. **`absolute`**:
+   - **Description**: The element is positioned relative to its nearest positioned ancestor (an ancestor element with a `position` value other than `static`).
+   - **Behavior**: If no such ancestor exists, the element is positioned relative to the initial containing block (usually the viewport). The element is removed from the normal document flow.
+
+4. **`fixed`**:
+   - **Description**: The element is positioned relative to the browser window (viewport).
+   - **Behavior**: The element remains in the same position even when the page is scrolled. It is removed from the normal document flow.
+
+5. **`sticky`**:
+   - **Description**: The element toggles between `relative` and `fixed` positioning based on the user's scroll position.
+   - **Behavior**: It behaves like `relative` until a specified scroll position is reached, after which it becomes `fixed` at that position.
+
+These positioning values allow you to control the layout and placement of elements on a webpage in various ways.
+
+...............................................................
+
+Q3.What is Z-index and why to use it?
+
+A.The **`z-index`** property in CSS is used to control the stacking order of positioned elements (elements with a `position` value other than `static`). It determines which elements appear on top of others when they overlap.
+
+### **Key Points about `z-index`**:
+
+1. **Stacking Order**:
+   - **`z-index`** specifies the stack level of an element. Elements with a higher `z-index` value are displayed in front of elements with a lower `z-index` value.
+
+2. **Usage**:
+   - **`z-index`** only works on elements with a `position` value of `relative`, `absolute`, `fixed`, or `sticky`. It does not affect elements with `position: static`.
+
+3. **Default Value**:
+   - The default value of `z-index` is `auto`, which means the element will follow the stacking context created by its parent and sibling elements.
+
+4. **Integer Values**:
+   - You can set `z-index` to any integer value (positive or negative). Higher values mean the element will be closer to the front. Negative values can be used to place an element behind others.
+
+### **Examples**:
+
+1. **Basic Example**:
+   ```css
+   .box1 {
+     position: absolute;
+     z-index: 1; /* Positioned behind .box2 */
+     background-color: red;
+   }
+
+   .box2 {
+     position: absolute;
+     z-index: 2; /* Positioned in front of .box1 */
+     background-color: blue;
+   }
+   ```
+
+   In this example, `.box2` will be displayed on top of `.box1` because its `z-index` is higher.
+
+2. **Stacking Context**:
+   - Elements with `z-index` create a stacking context, meaning their children and descendants are stacked within that context. This allows you to manage layering within different sections of the page.
+
+   ```css
+   .container {
+     position: relative;
+     z-index: 10; /* Creates a new stacking context */
+   }
+
+   .child {
+     position: absolute;
+     z-index: 5; /* Stacked within .container's context */
+   }
+   ```
+
+   In this example, `.child` will be stacked relative to `.container`, and its `z-index` will be considered within that context.
+
+### **Why Use `z-index`**:
+
+1. **Layering Elements**:
+   - It allows you to control which elements appear in front of or behind others, which is useful for creating overlays, modals, dropdowns, and other layered effects.
+
+2. **Managing Overlaps**:
+   - When multiple elements overlap, `z-index` helps determine the visual hierarchy and ensures the intended elements are visible on top.
+
+3. **Complex Layouts**:
+   - It provides control over complex layouts where multiple elements need to be layered in specific ways, such as in animations, interactive UI components, and custom designs.
+
+By using `z-index`, you can precisely manage the visual stacking of elements to achieve the desired design and functionality on your webpage.
+
+...............................................................
+
+
+
+
+
+
+
+
+
+
